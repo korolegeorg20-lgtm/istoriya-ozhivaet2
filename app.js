@@ -17,15 +17,15 @@ function loadDidEmbed(){
   const script=document.createElement('script');
   script.type='module';
   script.src='https://agent.d-id.com/v2/index.js';
-  script.setAttribute('data-mode','fabio');
+  // Full mode is the official in-page embed. Fabio is a floating widget and
+  // ignores the lesson frame, so use the existing black avatar container.
+  script.setAttribute('data-mode','full');
   script.setAttribute('data-client-key',didAgent.clientKey||'ck_N3omtzg6w_CASkFECrjPa');
   script.setAttribute('data-agent-id',didAgent.agentId||'v2_agt_HUTMZ9e7');
   script.setAttribute('data-name','did-agent');
   script.setAttribute('data-monitor','true');
   script.setAttribute('data-light-mode','false');
-  script.setAttribute('data-orientation','horizontal');
-  script.setAttribute('data-position','right');
-  script.setAttribute('data-open-mode','expanded');
+  script.setAttribute('data-target-id','didAgentContainer');
   watchDidWidget();
   document.body.append(script);
 }
